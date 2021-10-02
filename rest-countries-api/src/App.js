@@ -1,11 +1,16 @@
 import React from 'react'
+import { GlobalStyle } from './GlobalStyle.js'
 
-const url = 'https://restcountries.eu'
-
+//Components
+import Home from './components/Home'
 const App = () => {
 
   return (
-    <div>Hello React</div>
+    <>
+
+      <Home></Home>
+      <GlobalStyle></GlobalStyle>
+    </>
   )
 }
 
