@@ -15,6 +15,13 @@ img {
 
 body {
     font-family: 'Nunito Sans', sans-serif;
+    background-color: hsl(207, 26%, 17%);
+    color: white;
+}
+
+.card {
+    background-color: hsl(209, 23%, 22%);
+   
 }
 
 

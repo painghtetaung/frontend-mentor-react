@@ -1,35 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import API from '../API'
+import React from 'react';
+
+//hooks
+import { useHomeFetch } from '../hooks/useHomeFetch'
+
+//Components
+import FilterBar from './FilterBar';
+
 const Home = () => {
-    const [countries, setCountries] = useState([]);
-    const searchName = '';
-    const fetchCountriesData = async () => {
-        try {
-            const response = await fetch('https://restcountries.com/v3.1/all');
-            const data = await response.json()
-            setCountries(data);
-       
-        } catch (error) {
-            console.log(error.message)
-        }
-   }
-    useEffect(() => {
-        fetchCountriesData(searchName)
-        
-    }, []);
+    const { countries, setSearchName, error} = useHomeFetch()
+    
+   
     return (
         <> 
+            <FilterBar setSearchName={setSearchName}></FilterBar>
            <div className="row justify-content-center">
-                {countries.map(country => (
-                    <div className="card col-sm-6 col-md-3 m-1" style={{ width: '200px' }} key={country.cca2}>
-                        <img src={country.flags.png} className="card-img-top" alt="..." />
-                         <div className="card-body">
-                            <p className="card-text">{country.name.common}</p>
+               {error && <div>Country Not Found</div>}
+                {countries.map(country => {
+                    const { name, population, cca2, flags, region, capital } = country
+                    return (
+                        <div className="card col-sm-6 col-md-3 m-1 mb-5 p-0" style={{ width: '250px', height: '380px' }} key={cca2}>
+                            <img src={flags.png} className="card-img-top p-0 h-100" alt="..." />
+                            <div className="card-body h-100">
+                                <h5 className="card-title ctitle">{name.common}</h5>
+                                <p className="card-text mb-1">Population: {population}</p>
+                                <p className="card-text mb-1">Region: {region}</p>
+                                <p className="card-text mb-4">Capital: {capital}</p>
+                            </div>
+                        
+                        
                         </div>
-                        
-                        
-                    </div>
-                ))}
+                    )    
+                })
+                    
+                }
            </div>
         </> 
     )
