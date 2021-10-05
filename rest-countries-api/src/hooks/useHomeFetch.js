@@ -6,6 +6,7 @@ import API from '../API'
 export const useHomeFetch = () => {
 
     const [searchName, setSearchName] = useState('')
+    const [regionName, setRegionName] = useState('')
     const [countries, setCountries] = useState([]);
     const [error, setError] = useState(false)
 
@@ -24,11 +25,22 @@ export const useHomeFetch = () => {
         }
     }
 
+    const fetchFilterCountries = async(regionName) => {
+        try {
+            const filterCountries = await API.filterCountries(regionName)
+            setCountries(filterCountries) 
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
         fetchCountriesData(searchName)
-
     }, [searchName]);
 
+    useEffect(() => {
+        fetchFilterCountries(regionName)
+    }, [regionName])
 
-    return { countries, setSearchName, error }
+    return { countries, setSearchName, setRegionName, regionName, error }
 }

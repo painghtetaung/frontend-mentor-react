@@ -1,27 +1,53 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const FilterBar = ({setSearchName}) => {
-        const [state, setState] = useState('')
+//Styles
+import { Wrapper } from './FilterBar.Style'
+
+const FilterBar = ({setSearchName, setRegionName}) => {
+        const [inputName, setInputName] = useState('')
+
+        const [filterRegion, setFilterRegion] = useState('')
+
+        // var e = document.getElementById("filter");
+        // var strUser = e.value;
 
         const searchByName = (e) => {
-            const value = e.currentTarget.value;
-            setState(value);  
+            const nameValue = e.currentTarget.value;
+            setInputName(nameValue);
+        }
+
+        const searchByRegion = (e) => {
+            const regionValue = e.currentTarget.value
+            setFilterRegion(regionValue)
         }
 
         useEffect(() => {
             const timer = setTimeout(() => {
-                setSearchName(state);
+                setSearchName(inputName);
+                setRegionName(filterRegion)
               }, 300);
             
             return () => clearTimeout(timer)
-        }, [setSearchName, state])
+        }, [setSearchName, setRegionName, inputName, filterRegion])
     return (
-        <div>
-            <input type="text" 
+        <Wrapper>
+            <i class="fa-regular fa-magnifying-glass"></i>
+            <input type="text"
+                className="form-control"
                 placeholder="Search for a country..."
                 onChange={searchByName}
             />
-        </div>
+
+
+            <select id="filter" onChange={searchByRegion} className="form-select w-25" aria-label="Default select example">
+                <option value="0">Select Region</option>
+                <option value="Africa">Africa</option>
+                <option value="America">America</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="Oceania">Oceania</option>
+            </select>
+        </Wrapper>
     )
 }
 
