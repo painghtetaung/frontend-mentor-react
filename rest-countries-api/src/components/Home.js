@@ -7,12 +7,15 @@ import { useHomeFetch } from '../hooks/useHomeFetch'
 
 //Components
 import FilterBar from './FilterBar';
+import HeaderBar from './HeaderBar';
 
 const Home = () => {
     const { countries, setSearchName, setRegionName, error} = useHomeFetch()
    
    
     return (
+        <>
+            <HeaderBar></HeaderBar>
         <div className="container"> 
             <FilterBar setSearchName={setSearchName} setRegionName={setRegionName}></FilterBar>
            { countries &&
@@ -24,11 +27,11 @@ const Home = () => {
                      return (
                          <div className="card col-sm-6 col-md-3 m-1 mb-5 p-0" style={{ width: '250px', height: '380px' }} key={cca2}>
                              <img src={flags.png} className="card-img-top p-0 h-100" alt="..." />
-                             <div className="card-body h-100">
-                                 <h5 className="card-title ctitle">{name.common}</h5>
-                                 <p className="card-text mb-1">Population: {population}</p>
-                                 <p className="card-text mb-1">Region: {region}</p>
-                                 <p className="card-text mb-4">Capital: {capital}</p>
+                             <div className="card-body h-100 mt-3">
+                                 <h5 className="card-title ctitle mb-3">{name.common}</h5>
+                                 <p className="card-text mb-1"><span className="country-attri">Population:</span> {population}</p>
+                                 <p className="card-text mb-1"><span className="country-attri">Region:</span> {region}</p>
+                                 <p className="card-text mb-4"><span className="country-attri">Capital:</span> {capital}</p>
                              </div>
                          
                          
@@ -43,6 +46,7 @@ const Home = () => {
 
            
         </div> 
+        </>
     )
 }
 

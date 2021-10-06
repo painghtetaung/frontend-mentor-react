@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 //Styles
-import { Wrapper } from './FilterBar.Style'
+import { Wrapper, SearchBar, Filter } from './FilterBar.Style'
 
 const FilterBar = ({setSearchName, setRegionName}) => {
         const [inputName, setInputName] = useState('')
@@ -31,22 +31,27 @@ const FilterBar = ({setSearchName, setRegionName}) => {
         }, [setSearchName, setRegionName, inputName, filterRegion])
     return (
         <Wrapper>
-            <i class="fa-regular fa-magnifying-glass"></i>
-            <input type="text"
-                className="form-control"
-                placeholder="Search for a country..."
-                onChange={searchByName}
-            />
-
-
-            <select id="filter" onChange={searchByRegion} className="form-select w-25" aria-label="Default select example">
-                <option value="0">Select Region</option>
-                <option value="Africa">Africa</option>
-                <option value="America">America</option>
-                <option value="Asia">Asia</option>
-                <option value="Europe">Europe</option>
-                <option value="Oceania">Oceania</option>
-            </select>
+            <SearchBar>
+                <i className="fas fa-search"></i>
+                    <input type="text"
+                       
+                        placeholder="Search for a country"
+                        onChange={searchByName}
+                    />
+            </SearchBar>
+            <Filter>
+                
+                <select name="select" onChange={searchByRegion}>
+                
+                        <option value="0">Filter by Region</option>
+                        <option value="Africa">Africa</option>
+                        <option value="America">America</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Oceania">Oceania</option>
+                </select>
+              
+            </Filter>
         </Wrapper>
     )
 }
