@@ -80,7 +80,7 @@ body {
 
 @media screen and (max-width: 375px) {
     .card{
-        width: 50%;
+        width: 90%;
     }
     .card-row {
     justify-content: center;

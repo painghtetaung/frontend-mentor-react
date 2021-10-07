@@ -35,6 +35,14 @@ export const SearchBar = styled.div `
     top: 15px;
     left: 23px;
   }
+
+
+
+  @media screen and (min-width: 576px) {
+    input{
+      font-size: 13px;
+    }
+  }
 `;
 
 export const Filter = styled.div `
@@ -62,6 +70,8 @@ export const Filter = styled.div `
     }
     margin-left: 72px;
     width: 190px;
+
+    
   }
 
   

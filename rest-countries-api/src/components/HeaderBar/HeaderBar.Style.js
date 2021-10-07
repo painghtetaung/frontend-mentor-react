@@ -21,6 +21,13 @@ export const Title = styled.div `
         font-weight: 800;
     }
 
+    @media screen and (min-width: 576px) {
+   
+    p.title-text{
+      font-size: 15px;
+    }
+  }
+
 `;
 
 export const Mode = styled.div `
