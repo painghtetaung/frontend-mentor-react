@@ -54,7 +54,15 @@ export const Filter = styled.div `
     border-radius: 5px !important;
     background-color: hsl(209, 23%, 22%);
     color: #fff;
+  }
 
+  @media screen and (min-width: 576px) {
+    select {
+      width: 100%;
+    }
+    margin-left: 72px;
+    width: 190px;
+  }
 
-}    
+  
 `;

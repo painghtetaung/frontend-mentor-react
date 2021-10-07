@@ -34,5 +34,50 @@ body {
    }
 }
 
+@media screen and (min-width: 375px) {
+   .card-row {
+    justify-content: center;
+   }
+   .card {
+       width:50%;
+       height: 100%;
+       
+   }
+
+   .card-title {
+       font-size: 14px;
+   }
+
+   .country-attri {
+       font-size: 10px;
+   }
+
+   .card-text {
+       font-size: 11px;
+   }
+  }
+
+@media screen and (min-width: 576px) {
+   
+    .card {
+        width: 170px;
+        height: 300px;
+    }
+
+    .card-title {
+        font-size: 14px;
+    }
+
+    .country-attri {
+        font-size: 10px;
+    }
+
+    .card-text {
+        font-size: 11px;
+    }
+}
+
+ 
+
 
 `

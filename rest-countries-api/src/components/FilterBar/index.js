@@ -30,16 +30,16 @@ const FilterBar = ({setSearchName, setRegionName}) => {
             return () => clearTimeout(timer)
         }, [setSearchName, setRegionName, inputName, filterRegion])
     return (
-        <Wrapper>
-            <SearchBar>
+        <Wrapper className="row justify-content-between">
+            <SearchBar className="col-sm-6">
                 <i className="fas fa-search"></i>
                     <input type="text"
                        
-                        placeholder="Search for a country"
+                        placeholder="Search for a country..."
                         onChange={searchByName}
                     />
             </SearchBar>
-            <Filter>
+            <Filter className="col-sm-6">
                 
                 <select name="select" onChange={searchByRegion}>
                 
