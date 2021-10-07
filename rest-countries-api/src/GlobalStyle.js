@@ -34,6 +34,9 @@ body {
    }
 }
 
+
+
+
 @media screen and (min-width: 375px) {
    .card-row {
     justify-content: center;
@@ -60,8 +63,13 @@ body {
 @media screen and (min-width: 576px) {
    
     .card {
-        width: 170px;
-        height: 350px;
+        width: 200px;
+        height: 380px;
+        margin: 20px !important;
+    }
+
+    .card img {
+        height: 100% !important;
     }
 
     .card-title {
