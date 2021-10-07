@@ -61,7 +61,7 @@ body {
    
     .card {
         width: 170px;
-        height: 300px;
+        height: 350px;
     }
 
     .card-title {
@@ -75,6 +75,16 @@ body {
     .card-text {
         font-size: 11px;
     }
+}
+
+
+@media screen and (max-width: 375px) {
+    .card{
+        width: 50%;
+    }
+    .card-row {
+    justify-content: center;
+   }
 }
 
  
