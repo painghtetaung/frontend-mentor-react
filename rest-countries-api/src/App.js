@@ -25,10 +25,6 @@ const App = () => {
             <Route path='*'>
              <NotFound></NotFound>
             </Route>
-            
-         
-           
-         
           </Switch>
           <GlobalStyle />
       </Router>
