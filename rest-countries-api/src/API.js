@@ -36,6 +36,25 @@ const apiSettings = {
     //         })
     //     ).json();
     // },
+
+    fetchCountry: async(countryId) => {
+        const endpoint = countryId &&
+            `${base_api}alpha/${countryId}`;
+        return await (await fetch(endpoint)
+            // .then((res) => {
+            //     if (!res.ok) {
+            //         throw new Error("404 Not Found")
+            //     } else {
+            //         return res;
+            //     }
+            // })
+
+
+        ).json()
+
+    },
+
+
 }
 
 export default apiSettings;

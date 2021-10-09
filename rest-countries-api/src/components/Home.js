@@ -7,18 +7,18 @@ import { useHomeFetch } from '../hooks/useHomeFetch'
 
 //Components
 import FilterBar from './FilterBar';
-import MovieCard from './MovieCard'; 
+import CountryCard from './CountryCard'; 
 
 const Home = () => {
     const { countries, setSearchName, setRegionName, error} = useHomeFetch()
-   
-   
     return (
         <>
             <div className="container">
             <FilterBar setSearchName={setSearchName} setRegionName={setRegionName}></FilterBar>
             </div>
-            <MovieCard countries={countries} error={error}></MovieCard>
+            
+                <CountryCard countries={countries} error={error}></CountryCard>
+            
         </>
     )
 }

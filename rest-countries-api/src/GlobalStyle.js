@@ -35,6 +35,11 @@ body {
 }
 
 
+//Home.js
+a.link-countryid {
+   text-decoration: none;
+   height: 90%;
+ }
 
 
 @media screen and (min-width: 375px) {

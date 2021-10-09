@@ -28,8 +28,6 @@ const App = () => {
           </Switch>
           <GlobalStyle />
       </Router>
-     
-     
     </>
   )
 }
