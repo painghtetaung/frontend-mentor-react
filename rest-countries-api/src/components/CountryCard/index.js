@@ -15,9 +15,9 @@ const CountryCard = ({countries, error}) => {
                                
                                     <div className="card col-sm-3 col-md-3 m-1 mb-5 p-0" key={cca2}>
                                             <Link className="link-countryid" to={`/country/${cca2}`}>
-                                                <img src={flags.png} className="card-img-top card-img p-0" style={{ height: '80%' }} alt="..." />
+                                                <img src={flags.png} className="card-img-top card-img p-0" alt="..." />
                                             </Link>
-                                            <div className="card-body h-100 mt-3">
+                                            <div className="card-body h-100 mt-2">
                                                 <h5 className="card-title ctitle mb-3">{name.common}</h5>
                                                 <p className="card-text mb-1"><span className="country-attri">Population:</span> {population}</p>
                                                 <p className="card-text mb-1"><span className="country-attri">Region:</span> {region}</p>

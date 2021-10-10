@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+//Mode
+import { useModeChange } from '../../hooks/useModeChange';
 //Styles
 import { Wrapper, SearchBar, Filter } from './FilterBar.Style'
 
@@ -7,10 +8,13 @@ const FilterBar = ({setSearchName, setRegionName}) => {
         const [inputName, setInputName] = useState('')
 
         const [filterRegion, setFilterRegion] = useState('')
-
+        const { state, setState} = useModeChange()
         // var e = document.getElementById("filter");
         // var strUser = e.value;
-
+        const searchBar = document.querySelector(".searchBar")
+        if(state) {
+            searchBar.classList.toggle("light-theme")
+        }
         const searchByName = (e) => {
             const nameValue = e.currentTarget.value;
             setInputName(nameValue);
@@ -31,7 +35,7 @@ const FilterBar = ({setSearchName, setRegionName}) => {
         }, [setSearchName, setRegionName, inputName, filterRegion])
     return (
         <Wrapper className="row justify-content-between">
-            <SearchBar className="col-sm-6">
+            <SearchBar className="col-sm-6 searchBar">
                 <i className="fas fa-search"></i>
                     <input type="text"
                        
@@ -39,7 +43,7 @@ const FilterBar = ({setSearchName, setRegionName}) => {
                         onChange={searchByName}
                     />
             </SearchBar>
-            <Filter className="col-sm-6">
+            <Filter className="col-sm-6 filterBar">
                 
                 <select name="select" onChange={searchByRegion}>
                 

@@ -18,27 +18,42 @@ const CountryInfo = () => {
                 </Link>
                 
                 {country.map(countryInfo => {
-                    const { name, population } = countryInfo
+                    const { name, translations, flags, cca2, tld, population, region, subregion, capital, currencies, languages, borders } = countryInfo
+                    const currencyName = Object.keys(currencies)[0]//to get the dynamic properties of object
+                    const languagesName = Object.values(languages)
                     return (
-                        <div className="country-content">
-                    <div className="content-img">
-                       {name.common}
-                       {population}
-                    </div>
-                    <div className="content-info">
-                       <div className="info">
-                            <div className="info-1">
-
+                    <div className="country-content" key={cca2}>
+                        <div className="content-img">
+                           <img src={flags.png} alt="" />
+                        </div>
+                        <div className="content-info">
+                            <div className="info">
+                                <div className="info-1">
+                                    <p className="country-title">{name.common}</p>
+                                    <p><span className="country-text">Native Name: </span>{translations.nld.common}</p>
+                                    <p><span className="country-text">Population: </span>{population}</p>
+                                    <p><span className="country-text">Region: </span>{region}</p>
+                                    <p><span className="country-text">Sub Region: </span>{subregion}</p>
+                                    <p><span className="country-text">Capital: </span>{capital}</p>
+                                </div>
+                                <div className="info-2">
+                                    <p><span className="country-text">Top Level Domain: </span>{tld}</p>
+                                    <p><span className="country-text">Currencies: </span>{currencies[currencyName].name}</p>
+                                    <p><span className="country-text">Languages: </span>{languagesName.join(", ")}</p>   
+                                </div>
                             </div>
-                            <div className="info-2">
-                                
+                            <div className="border-countries">
+                                <p className="border-title">Border Countries</p>
+                                <div className="border-names-wrapper">
+                                {
+                                    borders.map(border => (
+                                        <div className="border-name">{border}</div>
+                                    ))
+                                }
+                                </div>
                             </div>
-                       </div>
-                       <div className="border-countries">
-
-                       </div>
+                        </div>
                     </div>
-                </div>
                     )
                 })}
                 

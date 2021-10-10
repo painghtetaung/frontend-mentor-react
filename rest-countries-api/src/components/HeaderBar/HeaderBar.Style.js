@@ -41,4 +41,7 @@ export const Mode = styled.div `
         font-size: 10px;
         transform: rotate(-20deg)
     }
+    .hover {
+        cursor: pointer;
+    }
 `;

@@ -13,9 +13,9 @@ export const GlobalStyle = createGlobalStyle `
     box-sizing: border-box;
 }
 
-img {
+/* img {
     max-width: 100%;
-}
+} */
 
 body {
     font-family: 'Nunito Sans', sans-serif;
@@ -47,6 +47,54 @@ a.back-link {
     color: inherit;
 }
 
+
+//light-theme mode
+.header.light-theme {
+    background-color: hsl(0, 0%, 98%);
+    color: hsl(200, 15%, 8%);
+    border-bottom: 1px solid hsl(200, 15%, 90%);
+}
+
+body.light-theme {
+    background-color: hsl(0, 0%, 98%);
+    color: hsl(200, 15%, 8%);
+}
+
+.searchBar.light-theme {
+    input {
+        background-color: transparent;
+        border: 1px solid hsl(200, 15%, 90%);
+        box-shadow: 5px 10px 20px hsl(200, 15%, 90%);
+        color: hsl(200, 15%, 8%);
+
+        ::placeholder {
+            color: hsl(200, 15%, 8%);
+            opacity: 0.5;
+        }
+    }
+}
+
+.filterBar.light-theme {
+    select {
+        color: hsl(200, 15%, 8%);
+        background-color: transparent;
+        border: 1px solid hsl(200, 15%, 90%);
+        box-shadow: 5px 10px 20px hsl(200, 15%, 90%);
+    }
+
+    select option {
+        background-color: transparent;
+        color: hsl(200, 15%, 8%);
+    }   
+}
+
+.card.light-theme {
+    background-color: transparent;
+    border: none;
+    box-shadow: 5px 10px 20px hsl(200, 15%, 90%);
+}
+
+//Media
 @media screen and (min-width: 375px) {
    .card-row {
     justify-content: center;
@@ -56,6 +104,10 @@ a.back-link {
        height: 100%;
        
    }
+
+  .card img {
+      height: 150px !important;
+  }
 
    .card-title {
        font-size: 14px;
@@ -74,12 +126,12 @@ a.back-link {
    
     .card {
         width: 200px;
-        height: 380px;
+        height: 350px;
         margin: 20px !important;
     }
 
     .card img {
-        height: 100% !important;
+        height: 150px !important;
     }
 
     .card-title {
@@ -99,6 +151,10 @@ a.back-link {
 @media screen and (max-width: 375px) {
     .card{
         width: 90%;
+    }
+
+    .card img {
+        height: 150px;
     }
     .card-row {
     justify-content: center;

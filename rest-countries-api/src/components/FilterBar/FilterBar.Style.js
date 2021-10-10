@@ -21,7 +21,7 @@ export const SearchBar = styled.div `
     color: white;
     opacity: 1;
      
-  }
+    }
   }
  
   input:focus {
