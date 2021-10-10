@@ -41,6 +41,11 @@ a.link-countryid {
    height: 90%;
  }
 
+//CountryInfo/index.js
+a.back-link {
+    text-decoration: none;
+    color: inherit;
+}
 
 @media screen and (min-width: 375px) {
    .card-row {

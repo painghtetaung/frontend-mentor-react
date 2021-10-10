@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useParams } from 'react-router'
 import { useCountryFetch } from '../../hooks/useCountryFetch'
 import {Wrapper} from './CountryInfo.Style'
@@ -9,10 +10,12 @@ const CountryInfo = () => {
     return (
         <>  
             <Wrapper className="container">
-                <div className="back-btn">
-                    <span className="arrow-icon"><i className="fas fa-arrow-left"></i></span>
-                    <p className="back-text">Back</p>
-                </div>
+                <Link className="back-link" to="/">
+                    <div className="back-btn">
+                        <span className="arrow-icon"><i className="fas fa-arrow-left"></i></span>
+                        <p className="back-text">Back</p>
+                    </div>
+                </Link>
                 
                 {country.map(countryInfo => {
                     const { name, population } = countryInfo
