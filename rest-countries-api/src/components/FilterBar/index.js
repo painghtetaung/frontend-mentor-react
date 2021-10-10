@@ -1,20 +1,35 @@
-import React, { useState, useEffect } from 'react';
-//Mode
-import { useModeChange } from '../../hooks/useModeChange';
+import React, { useState, useCallback, useContext, useEffect } from 'react';
 //Styles
 import { Wrapper, SearchBar, Filter } from './FilterBar.Style'
 
+//Context
+import LightContext from '../LightContext'
+
+//event
+import EventEmitter from '../../EventEmitter';
 const FilterBar = ({setSearchName, setRegionName}) => {
+        //Mode
+        const [light, setLight] = useContext(LightContext)
+        console.log("filterbar" + light)
+        //
         const [inputName, setInputName] = useState('')
 
         const [filterRegion, setFilterRegion] = useState('')
-        const { state, setState} = useModeChange()
-        // var e = document.getElementById("filter");
-        // var strUser = e.value;
-        const searchBar = document.querySelector(".searchBar")
-        if(state) {
-            searchBar.classList.toggle("light-theme")
-        }
+        
+        //Mode
+        // const changeMode = useCallback(() => {
+        //     const filterBar = document.querySelector(".filterBar")
+        //     const searchBar = document.querySelector(".searchBar")
+        //     const filterBarLight = document.querySelector(".filterBar.light-theme")
+        //     const searchBarLight = document.querySelector(".searchBar.light-theme")
+        //     if(light && !filterBarLight && !searchBarLight)
+        //         {
+        //             filterBar.classList.toggle("light-theme")
+        //             searchBar.classList.toggle("light-theme")
+        //         }
+        // }, [light])
+        //
+   
         const searchByName = (e) => {
             const nameValue = e.currentTarget.value;
             setInputName(nameValue);
@@ -24,6 +39,32 @@ const FilterBar = ({setSearchName, setRegionName}) => {
             const regionValue = e.currentTarget.value
             setFilterRegion(regionValue)
         }
+
+        //Mode
+        // useEffect(() => {
+        //     changeMode(light)
+        // },[changeMode, light])
+
+        useEffect(() => {
+            const changeMode = () => {
+                const filterBar = document.querySelector(".filterBar")
+                const searchBar = document.querySelector(".searchBar")
+               
+                if(light === true) {
+                    filterBar.classList.toggle("light-theme")
+                    searchBar.classList.toggle("light-theme")
+                    setLight(false)
+                }
+                    
+            }
+             changeMode()
+            
+            return () => {
+                setLight(false)
+            }   
+             
+        },[light, setLight])
+
 
         useEffect(() => {
             const timer = setTimeout(() => {
