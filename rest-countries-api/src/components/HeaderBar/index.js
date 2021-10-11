@@ -1,6 +1,6 @@
 import { Header, Title, Mode } from './HeaderBar.Style'
-import { useState, useEffect, useContext } from 'react'
-import { SearchBar } from '../FilterBar/FilterBar.Style'
+import { useEffect, useContext } from 'react'
+
 
 //Context
 import LightContext from '../LightContext'
