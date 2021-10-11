@@ -74,12 +74,12 @@ body.light-theme {
             color: hsl(200, 15%, 8%);
             opacity: 0.5;
         }
-
+}
         input:focus {
         outline: none !important;
         background-color: white !important;
     }
-    }
+    
 }
 
 .filterBar.light-theme {
