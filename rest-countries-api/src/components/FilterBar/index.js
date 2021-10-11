@@ -1,35 +1,18 @@
-import React, { useState, useCallback, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 //Styles
 import { Wrapper, SearchBar, Filter } from './FilterBar.Style'
 
 //Context
 import LightContext from '../LightContext'
 
-//event
-import EventEmitter from '../../EventEmitter';
 const FilterBar = ({setSearchName, setRegionName}) => {
         //LightMode-Context
         const [light, setLight] = useContext(LightContext)
-        console.log("filterbar" + light)
         //
         const [inputName, setInputName] = useState('')
 
         const [filterRegion, setFilterRegion] = useState('')
-        
-        //Mode
-        // const changeMode = useCallback(() => {
-        //     const filterBar = document.querySelector(".filterBar")
-        //     const searchBar = document.querySelector(".searchBar")
-        //     const filterBarLight = document.querySelector(".filterBar.light-theme")
-        //     const searchBarLight = document.querySelector(".searchBar.light-theme")
-        //     if(light && !filterBarLight && !searchBarLight)
-        //         {
-        //             filterBar.classList.toggle("light-theme")
-        //             searchBar.classList.toggle("light-theme")
-        //         }
-        // }, [light])
-        //
-   
+       
         const searchByName = (e) => {
             const nameValue = e.currentTarget.value;
             setInputName(nameValue);
@@ -40,10 +23,6 @@ const FilterBar = ({setSearchName, setRegionName}) => {
             setFilterRegion(regionValue)
         }
 
-        //Mode
-        // useEffect(() => {
-        //     changeMode(light)
-        // },[changeMode, light])
 
         useEffect(() => {
             const changeMode = (light) => {

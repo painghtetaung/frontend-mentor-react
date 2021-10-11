@@ -12,8 +12,9 @@ export const useHomeFetch = () => {
     const [regionName, setRegionName] = useState('')
     const [countries, setCountries] = useState([]);
     const [error, setError] = useState(false)
+    const [loading, setLoading] = useState(false)
         //LightMode-Context
-    const [light, setLight] = useContext(LightContext)
+    const [light] = useContext(LightContext)
 
     const changeMode = (light) => {
         const countryCard = document.querySelectorAll(".card")
@@ -22,13 +23,13 @@ export const useHomeFetch = () => {
             if (countryCard) {
                 countryCard.forEach((Card) => {
                     Card.classList.add("light-theme")
-                    console.log("modea after add from card" + light)
+                    // console.log("mode after add from card" + light)
                 })
             }
         } else {
             countryCard.forEach((Card) => {
                 Card.classList.remove("light-theme")
-                console.log("modea after remove from card" + light)
+                // console.log("mode after remove from card" + light)
             })
         }
     }
@@ -38,6 +39,7 @@ export const useHomeFetch = () => {
 
     const fetchCountriesData = useCallback(async(searchName) => {
         try {
+            setLoading(true)
             await changeMode(light)
             setError(false)
             const fetchCountries = await API.fetchCountries(searchName)
@@ -50,10 +52,12 @@ export const useHomeFetch = () => {
             setError(true)
 
         }
+        setLoading(false)
     }, [light])
 
     const fetchFilterCountries = useCallback(async(regionName) => {
         try {
+            setLoading(true)
             await changeMode(light)
             const filterCountries = await API.filterCountries(regionName)
             setCountries(filterCountries)
@@ -61,6 +65,7 @@ export const useHomeFetch = () => {
         } catch (error) {
             console.log(error)
         }
+        setLoading(false)
     }, [light])
 
     useEffect(() => {
@@ -71,5 +76,5 @@ export const useHomeFetch = () => {
         fetchFilterCountries(regionName)
     }, [regionName, fetchFilterCountries, light])
 
-    return { countries, setSearchName, setRegionName, regionName, error }
+    return { countries, setSearchName, setRegionName, regionName, error, loading }
 }

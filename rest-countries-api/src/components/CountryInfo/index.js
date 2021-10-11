@@ -3,36 +3,29 @@ import { Link } from 'react-router-dom'
 import { useParams } from 'react-router'
 import { useCountryFetch } from '../../hooks/useCountryFetch'
 import {Wrapper} from './CountryInfo.Style'
-
+//Spinner
+import Spinner from '../Spinner'
 //LightContext
 import LightContext from '../LightContext'
 const CountryInfo = () => {
     const { countryId } = useParams()
-    const { country, error } = useCountryFetch(countryId);
+    const { country,loading } = useCountryFetch(countryId);
     const [light] = useContext(LightContext)
 
     const changeMode = (light) => {
         const backBtn = document.querySelector(".back-btn")
-        const borderName = document.querySelectorAll(".border-name")
         if(light) {
             backBtn.classList.add("light-theme")
-                borderName.forEach((bordername) => {
-                    bordername.classList.add("light-theme")
-                })
-            
+              
         }else{
             backBtn.classList.remove("light-theme")
-            borderName.forEach((bordername) => {
-                bordername.classList.remove("light-theme")
-            })
-            
         }
     }
 
     useEffect(() => {
         changeMode(light)
     },[light])
-    // const name = country.map(countryInfo => countryInfo.name.common)
+
     return (
         <>  
             <Wrapper className="container">
@@ -42,7 +35,7 @@ const CountryInfo = () => {
                         <p className="back-text">Back</p>
                     </div>
                 </Link>
-                
+                { loading && <Spinner></Spinner> }
                 {country.map(countryInfo => {
                     const { name, translations, flags, cca2, tld, population, region, subregion, capital, currencies, languages, borders } = countryInfo
                     const currencyName = Object.keys(currencies)[0]//to get the dynamic properties of object
@@ -72,9 +65,14 @@ const CountryInfo = () => {
                                 <p className="border-title">Border Countries</p>
                                 <div className="border-names-wrapper">
                                 {
-                                    borders.map(border => (
-                                        <div className="border-name">{border}</div>
+                                   borders &&  borders.map(border => (
+                                    <div className="border-name">{border}</div>
                                     ))
+                                }
+                                 {
+                                   !borders && 
+                                    <div className="No-Border">No Border</div>
+                                 
                                 }
                                 </div>
                             </div>
