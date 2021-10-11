@@ -13,7 +13,7 @@ Users should be able to:
 - Toggle the color scheme between light and dark mode
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/rest-countries-api-with-color-theme-switcher-using-react-voE8HermL)
 - Live Site URL: [Add live site URL here](https://rest-countries.pages.dev/)
 
 - Semantic HTML5 markup
