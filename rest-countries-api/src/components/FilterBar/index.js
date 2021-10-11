@@ -46,23 +46,24 @@ const FilterBar = ({setSearchName, setRegionName}) => {
         // },[changeMode, light])
 
         useEffect(() => {
-            const changeMode = () => {
+            const changeMode = (light) => {
                 const filterBar = document.querySelector(".filterBar")
                 const searchBar = document.querySelector(".searchBar")
                
-                if(light === true) {
-                    filterBar.classList.toggle("light-theme")
-                    searchBar.classList.toggle("light-theme")
-                    setLight(false)
+                if(light) {
+                    filterBar.classList.add("light-theme")
+                    searchBar.classList.add("light-theme")
+                    
+                }else {
+                    
+                        filterBar.classList.remove("light-theme")
+                        searchBar.classList.remove("light-theme")
+    
                 }
                     
             }
-             changeMode()
-            
-            return () => {
-                setLight(false)
-            }   
-             
+             changeMode(light)
+           
         },[light, setLight])
 
 

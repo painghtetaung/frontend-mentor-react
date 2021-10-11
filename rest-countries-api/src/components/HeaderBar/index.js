@@ -12,15 +12,24 @@ const HeaderBar = () => {
     
     // const [ light, setLight ] = useState(false)
         
-         const changeTheme = () => {
-            const header = document.querySelector(".header")
+         const changeTheme = (light) => {
+            if(light) {
+                const header = document.querySelector(".header")
            
-            document.body.classList.toggle("light-theme")
-            header.classList.toggle("light-theme")
+                document.body.classList.add("light-theme")
+                header.classList.add("light-theme")
+            }else{
+                const header = document.querySelector(".header")
            
-            setLight(true)
+                document.body.classList.remove("light-theme")
+                header.classList.remove("light-theme")
+            }
 
          }
+
+        const triggerLight = () =>{
+            setLight(!light)
+        }
         
         //     const modeText = document.querySelector(".mode-text")
         //     const countryCard = document.querySelectorAll(".card")
@@ -63,10 +72,8 @@ const HeaderBar = () => {
         // }
 
         useEffect(() => {
-            return() => {
-                setLight(false)
-            }
-        },[setLight])
+            changeTheme(light)
+        },[light])
 
         return (
             <Header className="container-fluid header">
@@ -75,7 +82,7 @@ const HeaderBar = () => {
             </Title>
     
             <Mode>
-               <div onClick={changeTheme} className="d-flex hover">
+               <div onClick={triggerLight} className="d-flex hover">
                 <i className="fas fa-moon"></i>
                 <p className="mode-text">Dark Mode</p>
                </div>
