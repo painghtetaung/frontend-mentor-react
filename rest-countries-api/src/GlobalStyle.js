@@ -46,6 +46,9 @@ a.back-link {
     text-decoration: none;
     color: inherit;
 }
+div.back-btn:hover{
+    opacity: 0.8;
+}
 
 
 //light-theme mode
@@ -71,6 +74,11 @@ body.light-theme {
             color: hsl(200, 15%, 8%);
             opacity: 0.5;
         }
+
+        input:focus {
+        outline: none !important;
+        background-color: transparent;
+    }
     }
 }
 
@@ -91,6 +99,18 @@ body.light-theme {
 .card.light-theme {
     background-color: transparent;
     border: none;
+    box-shadow: 5px 10px 20px hsl(200, 15%, 90%);
+}
+
+div.back-btn.light-theme {
+    background-color: transparent;
+    border: 1px solid hsl(200, 15%, 90%);
+    box-shadow: 5px 10px 20px hsl(200, 15%, 90%);
+}
+
+div.border-name.light-theme {
+    background-color: transparent;
+    border: 1px solid hsl(200, 15%, 90%);
     box-shadow: 5px 10px 20px hsl(200, 15%, 90%);
 }
 

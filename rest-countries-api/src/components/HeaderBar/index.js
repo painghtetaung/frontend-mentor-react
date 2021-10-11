@@ -15,12 +15,10 @@ const HeaderBar = () => {
          const changeTheme = (light) => {
             if(light) {
                 const header = document.querySelector(".header")
-           
                 document.body.classList.add("light-theme")
                 header.classList.add("light-theme")
             }else{
                 const header = document.querySelector(".header")
-           
                 document.body.classList.remove("light-theme")
                 header.classList.remove("light-theme")
             }
@@ -83,8 +81,8 @@ const HeaderBar = () => {
     
             <Mode>
                <div onClick={triggerLight} className="d-flex hover">
-                <i className="fas fa-moon"></i>
-                <p className="mode-text">Dark Mode</p>
+                { !light ? <i className="fas fa-sun"></i> : <i className="fas fa-moon"></i> }
+                <p className="mode-text">{ !light ? "Light Mode" : "Dark Mode" }</p>
                </div>
             </Mode>
         </Header>

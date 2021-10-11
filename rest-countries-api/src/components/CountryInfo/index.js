@@ -1,11 +1,37 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router'
 import { useCountryFetch } from '../../hooks/useCountryFetch'
 import {Wrapper} from './CountryInfo.Style'
+
+//LightContext
+import LightContext from '../LightContext'
 const CountryInfo = () => {
     const { countryId } = useParams()
     const { country, error } = useCountryFetch(countryId);
+    const [light] = useContext(LightContext)
+
+    const changeMode = (light) => {
+        const backBtn = document.querySelector(".back-btn")
+        const borderName = document.querySelectorAll(".border-name")
+        if(light) {
+            backBtn.classList.add("light-theme")
+                borderName.forEach((bordername) => {
+                    bordername.classList.add("light-theme")
+                })
+            
+        }else{
+            backBtn.classList.remove("light-theme")
+            borderName.forEach((bordername) => {
+                bordername.classList.remove("light-theme")
+            })
+            
+        }
+    }
+
+    useEffect(() => {
+        changeMode(light)
+    },[light])
     // const name = country.map(countryInfo => countryInfo.name.common)
     return (
         <>  

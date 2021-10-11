@@ -36,7 +36,7 @@ export const Mode = styled.div `
         font-size: 11px;
         font-weight: 300;
     }
-    i.fa-moon {
+    i.fa-moon, i.fa-sun {
         margin-right: 6px;
         font-size: 10px;
         transform: rotate(-20deg)

@@ -1,7 +1,34 @@
-import React from 'react'
+import React, {useEffect, useContext} from 'react'
 import { Link } from 'react-router-dom'
 
+//context
+import LightContext from '../LightContext'
+
 const CountryCard = ({countries, error}) => {
+    //LightMode-Context
+    const [light, setLight] = useContext(LightContext)//Mode
+    // console.log("mode from card" + light)
+    // useEffect(() => {
+    //     const changeMode = (light) => {
+    //         const countryCard = document.querySelectorAll(".card")
+        
+    //         if(light) {
+    //             countryCard.forEach((Card) => {
+    //                 Card.classList.add("light-theme")
+    //                 console.log("modea after add from card" + light)
+    //             })
+                
+    //         }else {
+    //             countryCard.forEach((Card) => {
+    //                 Card.classList.remove("light-theme")
+    //             })
+    //         }
+                
+    //     }
+    //     changeMode(light)
+    
+    // },[light])
+
     return (
         <div className="container"> 
             

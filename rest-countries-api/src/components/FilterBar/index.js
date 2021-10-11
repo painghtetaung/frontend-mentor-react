@@ -8,7 +8,7 @@ import LightContext from '../LightContext'
 //event
 import EventEmitter from '../../EventEmitter';
 const FilterBar = ({setSearchName, setRegionName}) => {
-        //Mode
+        //LightMode-Context
         const [light, setLight] = useContext(LightContext)
         console.log("filterbar" + light)
         //

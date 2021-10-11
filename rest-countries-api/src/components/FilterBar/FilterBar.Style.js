@@ -26,7 +26,7 @@ export const SearchBar = styled.div `
  
   input:focus {
         outline: none !important;
-        background-color: hsl(209, 23%, 22%);;
+        background-color: hsl(209, 23%, 22%);
     }
 
   i.fa-search {

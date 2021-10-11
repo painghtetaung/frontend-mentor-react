@@ -3,9 +3,10 @@ import styled from 'styled-components'
 export const Wrapper = styled.div `
     div.back-btn {
         background-color: hsl(209, 23%, 22%);
-        width: 74px;
-        height: 22px;
-        padding: 4px 0 10px 0;
+        width: 80px;
+        border-radius: 5px;
+        height: 28px;
+        padding: 7px 0 10px 0;
         font-size: 11px;
         margin-bottom: 30px;
         display: flex;
@@ -61,9 +62,17 @@ export const Wrapper = styled.div `
        
     }
 
-    .border-name {
+    .border-name{
         background-color: hsl(209, 23%, 22%);
         text-align: center;
+        font-size: 11px;
+        padding: 6px 5px 4px 5px;
+        margin: 8px;
+        width: 100%;
+    }
+
+    .No-Border{
+        background-color: transparent;
         font-size: 11px;
         padding: 6px 5px 4px 5px;
         margin: 8px;
@@ -114,7 +123,7 @@ export const Wrapper = styled.div `
         p.border-title {
             width: 40%;
         }
-        .border-name {
+        .border-name{
             width: 50px;
         }
         div.border-names-wrapper {
@@ -148,7 +157,7 @@ export const Wrapper = styled.div `
         p.border-title {
             width: 25%;
         }
-        .border-name {
+        .border-name{
             width: 100px;
         }
 
@@ -181,7 +190,7 @@ export const Wrapper = styled.div `
         p.border-title {
             font-size: 18px;
         }
-        .border-name {
+        .border-name{
             font-size: 15px;
         }
 
