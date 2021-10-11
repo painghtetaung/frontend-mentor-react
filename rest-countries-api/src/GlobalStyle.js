@@ -105,7 +105,7 @@ body.light-theme {
 div.back-btn.light-theme {
     background-color: white !important;
     border: 1px solid hsl(200, 15%, 90%);
-    box-shadow: 5px 10px 20px hsl(200, 15%, 90%);
+    box-shadow: 5px 10px 12px hsl(200, 15%, 92%);
 }
 
 div.border-name.light-theme {
