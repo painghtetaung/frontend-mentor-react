@@ -77,7 +77,7 @@ body.light-theme {
 
         input:focus {
         outline: none !important;
-        background-color: transparent;
+        background-color: white !important;
     }
     }
 }
